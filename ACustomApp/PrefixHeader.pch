@@ -1,0 +1,70 @@
+//
+//  PrefixHeader.pch
+//  SXTV
+//
+//  Created by Apple on 15/12/23.
+//  Copyright © 2015年 Apple. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import <Availability.h>
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "UIColor+expanded.h"
+#import "UIImage+Common.h"
+#import "NSString+Common.h"
+#import "UIView+Common.h"
+#import <ReactiveCocoa/ReactiveCocoa.h>
+#import <ReactiveCocoa/RACEXTScope.h>
+#import "UILabel+Common.h"
+#import <Masonry/Masonry.h>
+#import "UIImageView+WebCache.h"
+#import "NetAPIManager.h"
+#import "UIBarButtonItem+Common.h"
+#import "MJExtension.h"
+#import "NSDictionary+Common.h"
+#import "NSObject+Common.h"
+//#import "UserData.h"
+//#import "UserDataTool.h"
+/****  debug log **/ //NSLog输出信息
+#ifdef DEBUG
+
+#define DLog( s, ... ) NSLog( @"< %@:(第%d行) > %@", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__] )
+
+#else
+
+#define DLog( s, ... )
+
+#endif
+
+#endif
+#define kDevice_Is_iPhone4 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 960), [[UIScreen mainScreen] currentMode].size) : NO)
+
+#define kDevice_Is_iPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
+#define kDevice_Is_iPhone6 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(750, 1334), [[UIScreen mainScreen] currentMode].size) : NO)
+#define kDevice_Is_iPhone6Plus ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2208), [[UIScreen mainScreen] currentMode].size) : NO)
+#define kKeyWindow [UIApplication sharedApplication].keyWindow
+
+#define RGBColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+#define RGBAColor(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:a]
+#define kColorTableBG [UIColor colorWithHexString:@"0xfafafa"]
+#define kColorTableSectionBg [UIColor colorWithHexString:@"0xeeeeee"]
+#define BoldSystemFont(size)  [UIFont boldSystemFontOfSize:size]
+#define systemFont(size)      [UIFont systemFontOfSize:size]
+
+#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
+
+#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+
+#define BGCOLOR [UIColor colorWithRed:245/255.f green:245/255.f blue:245/255.f alpha:1.0]
+
+#define kPaddingLeftWidth 15.0
+#define kScaleFrom_iPhone5_Desgin(_X_) (_X_ * (SCREENWIDTH/320))
+
+#define KVauleFromXelseY(x,y) (x ? x : y)
+
+#endif /* PrefixHeader_pch */
