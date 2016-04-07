@@ -36,6 +36,8 @@
 	return self;
 }
 
+
+
 - (void)configureImageViwWithImageURL:(NSURL *)url animated:(BOOL)animated {
 //	NSLog(@"%@, animated = %@", NSStringFromSelector(_cmd), animated ? @"YES" : @"NO");
 	if (animated) {
